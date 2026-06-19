@@ -1,0 +1,83 @@
+/* =========================================================
+   tokens.css — 디자인 토큰 (Figma 수치 그대로)
+   한국투자증권 · 연금 MBTI TEST 모바일 플로우
+   ========================================================= */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  /* ---- Color : Brand / Primary ---- */
+  --c-primary:        #215cec; /* rgb(33,92,236)  주요 버튼 */
+  --c-primary-strong: #225ae3; /* rgb(34,90,227)  라벨/버튼 변형 */
+  --c-primary-alt:    #235bed; /* rgb(35,91,237)  일부 버튼/강조 */
+  --c-accent:         #3f7cff; /* rgb(63,124,255) 강조 텍스트 · O/X */
+
+  /* ---- Color : Background ---- */
+  --c-bg-blue:    #ecf6ff; /* rgb(236,246,255) 연한 블루 카드/칩 */
+  --c-bg-blue-2:  #f4f9ff; /* rgb(244,249,255) 아이콘박스 배경 */
+  --c-bg-result:  #ecf6ff; /* 결과 화면 배경 */
+  --c-bg-gray:    #f6f6f6; /* rgb(246,246,246) textarea 배경 */
+  --c-white:      #ffffff;
+
+  /* ---- Color : Ink / Text ---- */
+  --c-ink:         #111111; /* rgb(17,17,17) */
+  --c-ink-strong:  #000000;
+  --c-gray:        #666666; /* rgb(102,102,102) 서브 타이틀 */
+  --c-gray-2:      #71727c; /* rgb(113,114,124) 캡션/플레이스홀더 라벨 */
+  --c-placeholder: #999999; /* rgb(153,153,153) 인풋 placeholder */
+
+  /* ---- Color : Line / Border ---- */
+  --c-border:      #cacbd3; /* rgb(202,203,211) 인풋 보더 */
+  --c-border-soft: #ececec; /* rgb(236,236,236) */
+  --c-dash:        #bbd6f4; /* rgb(187,214,244) 안내 점선 */
+
+  /* ---- Color : Accent / Misc ---- */
+  --c-card-yellow: #fffbb3; /* rgb(255,251,179) 결과 카드 */
+  --c-star:        #ffa100; /* rgb(255,161,0)   별/구분선 */
+  --c-intro-hi:    #feffc1; /* rgb(254,255,193) 인트로 하이라이트 */
+
+  /* ---- Gradient ---- */
+  --g-intro: radial-gradient(139.66px 190.09px at 89.87% 9.75%, rgba(255,255,255,.42) 12.02%, rgba(255,255,255,0) 100%),
+             linear-gradient(180deg, #0144ab 0%, #3d97ff 56.25%, #d1f0ff 100%);
+
+  /* ---- Radius ---- */
+  --r-xs: 4px;
+  --r-sm: 11px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-2xl: 24px;
+  --r-pill: 999px;
+
+  /* ---- Spacing ---- */
+  --s-4: 4px;
+  --s-6: 6px;
+  --s-8: 8px;
+  --s-10: 10px;
+  --s-12: 12px;
+  --s-15: 15px;
+  --s-16: 16px;
+  --s-20: 20px;
+  --s-24: 24px;
+  --s-32: 32px;
+
+  /* ---- Type scale (px, 디자인 기준) ---- */
+  --t-36: 36px;
+  --t-28: 28px;
+  --t-24: 24px;
+  --t-22: 22px;
+  --t-20: 20px;
+  --t-18: 18px;
+  --t-16: 16px;
+  --t-15: 15px;
+  --t-13: 13px;
+
+  /* ---- Font (Pretendard) ---- */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- Layout ---- */
+  --screen-w: 390px;
+  --screen-h: 844px;
+  --header-h: 52px;
+}

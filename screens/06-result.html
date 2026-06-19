@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>연금 MBTI TEST · 결과</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <main class="app-screen app-screen--result">
+    <header class="app-header">
+      <button class="app-header__btn" aria-label="뒤로">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z"/></svg>
+      </button>
+      <button class="app-header__btn" aria-label="이미지 저장" style="width:auto; gap:6px; font-size:var(--t-13); color:var(--c-gray-2);">
+        이미지 저장
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+      </button>
+    </header>
+
+    <div class="screen-body">
+      <div class="content" style="display:flex; flex-direction:column; align-items:center; gap:30px;">
+        <!-- 결과 카드 -->
+        <div class="result-stack" style="margin-top:8px;">
+          <div class="result-stack__ghost result-stack__ghost--l"></div>
+          <div class="result-stack__ghost result-stack__ghost--r"></div>
+          <article class="result-card" style="position:relative;">
+            <p class="result-card__eyebrow">집요한 장인</p>
+            <div class="result-card__divider"><img src="../assets/img/sparkle.png" alt="" style="width:14px;"></div>
+            <img src="../assets/img/char-result.png" alt="INFJ 캐릭터" style="width:200px; margin:0 auto; display:block;">
+            <p class="result-card__type" style="margin-top:4px;">INFJ</p>
+            <p class="result-card__quote">“하나 고르면 끝까지 간다.<br>중간에 바꾸는 건 하수지!”</p>
+          </article>
+        </div>
+
+        <!-- 성향 리스트 -->
+        <div class="list-card">
+          <div class="list-row">
+            <span class="list-row__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="list-row__text">스스로 납득한 선택인지가 중요해요</span>
+          </div>
+          <div class="list-row">
+            <span class="list-row__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="list-row__text">한 번 확신하면 꾸준한 타입이에요</span>
+          </div>
+          <div class="list-row">
+            <span class="list-row__check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="list-row__text">단기적 변화에는 쉽게 휘둘리지 않아요</span>
+          </div>
+        </div>
+
+        <!-- 숨은 리스크 -->
+        <div class="info-card">
+          <p class="info-card__title">숨은 리스크</p>
+          <p class="info-card__text u-pre">변화 신호를 늦게 받아들일 수 있어요.
+새로운 기회가 들어오는 시기를 잘 살펴야 해요</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-area">
+      <button class="btn btn--primary btn--block" style="gap:8px;">
+        <img src="../assets/img/sparkle.png" alt="" style="width:20px;"> 전문가 해석 이어받기
+      </button>
+    </div>
+    <div class="home-indicator"></div>
+  </main>
+</body>
+</html>

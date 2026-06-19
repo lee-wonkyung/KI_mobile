@@ -1,0 +1,462 @@
+/* =========================================================
+   components.css — 재사용 컴포넌트 (케밥케이스)
+   버튼 · 입력폼 · 카드 · 헤더 · 칩 · 자리표시 박스 등
+   ========================================================= */
+
+/* ------------------------------------------------------------------
+   app-header — 상단 헤더 (높이 52)
+   ------------------------------------------------------------------ */
+.app-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  padding: 0 24px;
+}
+.app-header__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  color: var(--c-ink-strong);
+  padding: 0;
+}
+.app-header__btn svg { display: block; }
+.app-header__title {
+  font-size: var(--t-16);
+  font-weight: 500;
+  color: var(--c-ink-strong);
+}
+.app-header__spacer { width: 24px; height: 24px; }
+/* 다크 화면(테스트)용 흰색 아이콘 */
+.app-header--on-dark .app-header__btn { color: var(--c-white); }
+
+/* ------------------------------------------------------------------
+   btn — 버튼
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-8);
+  border: 0;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  font-size: var(--t-18);
+  line-height: 1;
+  color: var(--c-white);
+  background: var(--c-primary);
+  white-space: nowrap;
+}
+.btn--block { width: 100%; height: 56px; }
+.btn--lg-text { font-size: var(--t-22); letter-spacing: -.02em; }
+.btn--pill { border-radius: 38px; }
+.btn--primary { background: var(--c-primary); }
+.btn--primary-alt { background: var(--c-primary-alt); }
+.btn--ghost {
+  background: transparent;
+  color: var(--c-primary);
+  box-shadow: inset 0 0 0 1px var(--c-border);
+}
+.btn:active { filter: brightness(.95); }
+
+/* btn-area — 하단 고정 버튼 영역 */
+.btn-area {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-10);
+  padding: 0 20px 20px;
+}
+.btn-area__hint {
+  font-size: var(--t-15);
+  font-weight: 400;
+  color: var(--c-gray-2);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------
+   input-field / field — 입력폼
+   ------------------------------------------------------------------ */
+.field { display: flex; flex-direction: column; gap: var(--s-15); }
+.field__label {
+  font-size: var(--t-16);
+  font-weight: 700;
+  color: var(--c-primary-strong);
+}
+.input-field {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-white);
+  font-family: inherit;
+  font-size: var(--t-18);
+  font-weight: 400;
+  color: var(--c-ink);
+}
+.input-field::placeholder { color: var(--c-placeholder); }
+.input-field--filled { color: var(--c-ink); font-weight: 500; }
+.input-field:focus { outline: none; border-color: var(--c-primary); }
+
+.textarea-field {
+  width: 100%;
+  min-height: 281px;
+  padding: 16px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-bg-gray);
+  font-family: inherit;
+  font-size: var(--t-15);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--c-ink-strong);
+  resize: none;
+}
+
+.field-link {
+  align-self: flex-end;
+  font-size: var(--t-16);
+  color: var(--c-gray-2);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------
+   checkbox — 동의 체크
+   ------------------------------------------------------------------ */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-6);
+  font-size: var(--t-15);
+  color: var(--c-ink);
+}
+.checkbox__box {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--r-xs);
+  background: var(--c-white);
+  box-shadow: inset 0 0 0 1px #636363;
+  color: #c4c4c4;
+}
+.checkbox--round .checkbox__box {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-pill);
+  background: var(--c-gray-2);
+  box-shadow: none;
+  color: var(--c-white);
+}
+.checkbox--full {
+  width: 100%;
+  justify-content: space-between;
+  font-weight: 400;
+  color: var(--c-gray-2);
+}
+.checkbox__main { display: inline-flex; align-items: center; gap: var(--s-8); }
+
+/* ------------------------------------------------------------------
+   icon-box — 60×60 장식 아이콘 자리표시
+   ------------------------------------------------------------------ */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--r-xl);
+  background: var(--c-bg-blue-2);
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  flex: none;
+}
+
+/* ------------------------------------------------------------------
+   placeholder-box — 이미지/일러스트/사진 자리표시 박스
+   ------------------------------------------------------------------ */
+.placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  color: #93a0b3;
+  font-size: var(--t-13);
+  font-weight: 500;
+  letter-spacing: -.01em;
+  background-color: #eef2f7;
+  background-image:
+    linear-gradient(45deg, #e4e9f0 25%, transparent 25%, transparent 75%, #e4e9f0 75%),
+    linear-gradient(45deg, #e4e9f0 25%, transparent 25%, transparent 75%, #e4e9f0 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+  border: 1px dashed #c2cad6;
+  border-radius: var(--r-md);
+}
+.placeholder-box--on-blue { background-color: #dcebfb; }
+.placeholder-box--plain {
+  background-image: none;
+  background-color: #f0f2f6;
+}
+
+/* ------------------------------------------------------------------
+   title-block — 제목 + 서브카피
+   ------------------------------------------------------------------ */
+.title-block { display: flex; flex-direction: column; gap: var(--s-32); align-items: flex-start; }
+.title-lg {
+  font-size: var(--t-24);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--c-ink);
+}
+.title-xl {
+  font-size: var(--t-36);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--c-ink);
+}
+.title-md {
+  font-size: var(--t-20);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--c-ink-strong);
+}
+.subtitle {
+  font-size: var(--t-18);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--c-gray);
+}
+.subtitle--muted { color: var(--c-gray-2); }
+
+/* ------------------------------------------------------------------
+   q-badge — 질문 칩 (Q1 + 문항)
+   ------------------------------------------------------------------ */
+.q-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-8);
+  padding: 21px 20px;
+  border-radius: var(--r-xl);
+  background: var(--c-bg-blue);
+  text-align: center;
+}
+.q-badge__no { font-size: var(--t-16); font-weight: 700; color: var(--c-accent); }
+.q-badge__text { font-size: var(--t-16); font-weight: 700; color: var(--c-ink-strong); }
+.q-badge--pill { border-radius: var(--r-pill); padding: 12px 32px; }
+
+/* ------------------------------------------------------------------
+   pill — 선택지 버블 (테스트 화면)
+   ------------------------------------------------------------------ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 157px;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background: var(--c-white);
+  font-size: var(--t-16);
+  font-weight: 700;
+  text-align: center;
+  color: var(--c-ink-strong);
+}
+
+/* ------------------------------------------------------------------
+   info-card / list — 흰색 라운드 카드 + 리스트
+   ------------------------------------------------------------------ */
+.info-card {
+  width: 100%;
+  border-radius: var(--r-2xl);
+  background: var(--c-white);
+  padding: 20px 24px;
+}
+.info-card__title { font-size: var(--t-16); font-weight: 700; color: var(--c-ink); }
+.info-card__text { font-size: var(--t-16); font-weight: 400; line-height: 1.45; color: var(--c-gray); margin-top: 12px; }
+
+.list-card {
+  width: 100%;
+  border-radius: var(--r-2xl);
+  background: var(--c-white);
+  padding: 8px 20px;
+}
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-12);
+  padding: 16px 0;
+}
+.list-row + .list-row { box-shadow: inset 0 1px 0 #f1f3f6; }
+.list-row__check {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  color: var(--c-accent);
+}
+.list-row__text { font-size: var(--t-16); font-weight: 500; color: var(--c-ink); }
+
+/* permission-item — 권한 안내 행 (아이콘 + 2줄) */
+.permission-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-16);
+}
+.permission-item__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--c-bg-blue-2);
+  font-size: 18px;
+}
+.permission-item__title { font-size: var(--t-18); font-weight: 700; color: var(--c-ink-strong); }
+.permission-item__desc  { font-size: var(--t-16); font-weight: 400; color: var(--c-gray-2); margin-top: 8px; }
+
+/* ------------------------------------------------------------------
+   bottom-sheet — 하단 시트 (카메라 권한)
+   ------------------------------------------------------------------ */
+.sheet-dimm {
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, .4);
+  z-index: 5;
+}
+.bottom-sheet {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-32);
+  padding: 0 32px 20px;
+  background: var(--c-white);
+  border-radius: var(--r-2xl) var(--r-2xl) 0 0;
+}
+.bottom-sheet__handle {
+  align-self: center;
+  width: 52px; height: 5px;
+  margin: 16px 0 0;
+  border-radius: var(--r-pill);
+  background: #e5e8eb;
+}
+.bottom-sheet__title { font-size: var(--t-20); font-weight: 700; color: var(--c-ink-strong); }
+
+/* ------------------------------------------------------------------
+   progress-bar — 진행 세그먼트 (4분할)
+   ------------------------------------------------------------------ */
+.progress-bar {
+  display: flex;
+  gap: var(--s-6);
+  align-items: center;
+  justify-content: center;
+}
+.progress-bar__seg {
+  flex: 1 1 0;
+  height: 4px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .4);
+}
+.progress-bar__seg--on { background: var(--c-white); }
+
+/* ------------------------------------------------------------------
+   result-card — MBTI 결과 카드 (노란 카드 스택)
+   ------------------------------------------------------------------ */
+.result-card {
+  position: relative;
+  width: 265px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,.6) 30.77%, rgba(255,255,255,0) 100%), var(--c-card-yellow);
+  box-shadow: 0 4px 51px rgba(0, 0, 0, .13);
+  padding: 16px 0 24px;
+  text-align: center;
+}
+.result-card__eyebrow {
+  font-size: var(--t-13);
+  font-weight: 700;
+  color: var(--c-star);
+}
+.result-card__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0 12px;
+  color: var(--c-star);
+}
+.result-card__divider::before,
+.result-card__divider::after {
+  content: "";
+  width: 70px;
+  height: 1px;
+  background: var(--c-star);
+}
+.result-card__type {
+  font-size: 51px;
+  font-weight: 800;
+  color: var(--c-white);
+  text-shadow: 0 0 14px rgba(0, 0, 0, .25);
+}
+.result-card__quote {
+  font-size: var(--t-13);
+  font-weight: 600;
+  color: var(--c-ink-strong);
+  padding: 0 24px;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------
+   keyboard — iOS 모사 키보드 (CSS)
+   ------------------------------------------------------------------ */
+.keyboard {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 8px 3px 28px;
+  background: #d1d4db;
+}
+.keyboard__row { display: flex; justify-content: center; gap: 6px; padding: 0 3px; }
+.keyboard__key {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--c-ink-strong);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .28);
+}
+.keyboard__key--fn { background: #adb3bd; color: var(--c-ink-strong); flex-grow: 1.4; }
+.keyboard__key--space { flex-grow: 5; }
+.keyboard__key--num { height: 46px; font-size: 22px; font-weight: 500; }
+
+/* 카드 뒤 겹쳐진 그림자 카드 */
+.result-stack { position: relative; display: flex; justify-content: center; }
+.result-stack__ghost {
+  position: absolute;
+  top: 8px;
+  width: 265px;
+  height: 417px;
+  border-radius: var(--r-lg);
+  background: #d9e6f6;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .08);
+}
+.result-stack__ghost--l { transform: rotate(-6deg); }
+.result-stack__ghost--r { transform: rotate(6deg); }
