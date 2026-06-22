@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>연금 MBTI TEST · 연락 정보</title>
-  <link rel="stylesheet" href="../css/tokens.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/components.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>연금 MBTI TEST · 연락 정보</title>
+	<link rel="stylesheet" href="../css/tokens.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/components.css">
 </head>
+
 <body>
-  <main class="app-screen">
-    <header class="app-header">
-      <button class="app-header__btn" aria-label="뒤로">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z"/></svg>
-      </button>
-      <span class="app-header__spacer"></span>
-    </header>
+	<main class="app-screen">
+		<header class="app-header">
+			<button class="app-header__btn" aria-label="뒤로">
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+					<path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z" />
+				</svg>
+			</button>
+			<span class="app-header__spacer"></span>
+		</header>
 
-    <div class="screen-body">
-      <div class="content" style="gap:60px;">
-        <h1 class="title-lg u-pre">연락받을 정보를
-입력해 주세요</h1>
+		<div class="screen-body">
+			<div class="content" style="gap:60px;">
+				<h1 class="title-lg u-pre">연락받을 정보를
+					입력해 주세요</h1>
 
-        <div style="display:flex; flex-direction:column; gap:20px;">
-          <div class="field">
-            <label class="field__label" for="name">이름</label>
-            <input id="name" class="input-field" type="text" placeholder="홍길동">
-          </div>
-          <div class="field">
-            <label class="field__label" for="phone">휴대폰번호</label>
-            <input id="phone" class="input-field" type="tel" placeholder="010-8000-0000">
-          </div>
-          <div class="field">
-            <textarea class="textarea-field" readonly>(예시입니다)
+				<div style="display:flex; flex-direction:column; gap:20px;">
+					<div class="field">
+						<label class="field__label" for="name">이름</label>
+						<input id="name" class="input-field" type="text" placeholder="홍길동">
+					</div>
+					<div class="field">
+						<label class="field__label" for="phone">휴대폰번호</label>
+						<input id="phone" class="input-field" type="tel" placeholder="010-8000-0000">
+					</div>
+					<div class="field">
+						<textarea class="textarea-field" readonly>(예시입니다)
 
 (이하 “회사”)은 서비스 제공을 위해 아래와 같이 개인정보를 수집·이용합니다.
 
@@ -47,22 +51,26 @@
 선택 항목: 이메일, 투자 성향 정보, 마케팅 수신 여부 등
 3. 보유 및 이용 기간
 수집·이용 목적 달성 시까지 보관 후 지체 없이 파기</textarea>
-          </div>
-        </div>
+					</div>
+				</div>
 
-        <label class="checkbox">
-          <span class="checkbox__box">
-            <svg width="10" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </span>
-          개인정보 수집에 동의합니다
-        </label>
-      </div>
-    </div>
 
-    <div class="btn-area">
-      <button class="btn btn--primary btn--block">제출하기</button>
-    </div>
-    <div class="home-indicator"></div>
-  </main>
+			</div>
+		</div>
+
+		<div class="btn-area">
+			<label class="checkbox">
+				<input class="checkbox__input" type="checkbox">
+				<span class="checkbox__box">
+					<svg width="10" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20 6L9 17l-5-5" />
+					</svg>
+				</span>
+				개인정보 수집에 동의합니다
+			</label>
+			<button class="btn btn--primary btn--block">제출하기</button>
+		</div>
+	</main>
 </body>
+
 </html>

@@ -3,120 +3,238 @@
    ========================================================= */
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+	box-sizing: border-box;
+}
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* 공통 margin 리셋 */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ul,
+ol,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  font-family: var(--font-sans);
-  color: var(--c-ink);
-  background: var(--c-white);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  line-height: 1.2;
+	font-family: var(--font-sans);
+	color: var(--c-ink);
+	background: var(--c-white);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	line-height: 1.2;
 }
 
-img { display: block; max-width: 100%; }
-button { font-family: inherit; cursor: pointer; }
-a { color: inherit; text-decoration: none; }
+/* 제목 — 기본 굵기/크기 상속, 줄바꿈 보정 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 1.2;
+	text-wrap: balance;
+}
+
+/* 리스트 — 마커 제거(필요 시 컴포넌트에서 복원) */
+ul,
+ol {
+	list-style: none;
+}
+
+/* 미디어 — 블록 정렬 + 컨테이너에 맞춤 */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 폼 요소 — 폰트 상속 */
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* 표 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /* ---------- 앱 화면 셸 ----------
    모바일 우선: 화면 가득 채움. 데스크탑(≥600px)에서는
    390×844 디바이스 프레임으로 중앙 정렬. */
 .app-screen {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100dvh;
-  margin-inline: auto;
-  background: var(--c-white);
-  overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	/* 키보드가 올라오면 visualViewport 기반 --app-height(JS)로 줄어든다.
+     미지원/초기 렌더 시 100dvh로 폴백. */
+	height: var(--app-height, 100dvh);
+	margin-inline: auto;
+	background: var(--c-white);
+	overflow: hidden;
 }
 
 /* 화면별 배경 변형 */
-.app-screen--intro  { background: var(--g-intro); }
-.app-screen--result { background: var(--c-bg-result); }
-.app-screen--dark   { background: #757575; }
+.app-screen--intro {
+	background: var(--g-intro);
+}
+
+.app-screen--result {
+	background: var(--c-bg-result);
+}
+
+.app-screen--dark {
+	background: #757575;
+}
 
 @media (min-width: 600px) {
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 32px;
-    background: #5e5e5e;
-  }
-  .app-screen {
-    width: var(--screen-w);
-    min-height: 0;
-    height: var(--screen-h);
-    border-radius: 28px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
-  }
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		padding: 32px;
+		background: #5e5e5e;
+	}
+
+	.app-screen {
+		width: var(--screen-w);
+		/* 데스크탑은 고정 디바이스 프레임 — 키보드 변수 무시 */
+		height: var(--screen-h);
+		border-radius: 28px;
+		box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+	}
 }
 
 /* ---------- 본문 영역 ---------- */
 .screen-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 .content {
-  padding: var(--s-32);
+	display: flex;
+	flex-direction: column;
+	padding: var(--s-32);
 }
 
 /* ---------- 상태바 (iOS 모사, 인트로/카메라 화면) ---------- */
 .status-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 44px;
-  padding: 0 24px 0 33px;
-  font-size: var(--t-15);
-  font-weight: 600;
-  flex: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 44px;
+	padding: 0 24px 0 33px;
+	font-size: var(--t-15);
+	font-weight: 600;
+	flex: none;
 }
-.status-bar__time { letter-spacing: .3px; }
-.status-bar__icons { display: flex; gap: 6px; align-items: center; }
+
+.status-bar__time {
+	letter-spacing: .3px;
+}
+
+.status-bar__icons {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
 .status-bar__icons span {
-  display: inline-block;
-  width: 18px; height: 11px;
-  border-radius: 2px;
-  background: currentColor;
-  opacity: .9;
+	display: inline-block;
+	width: 18px;
+	height: 11px;
+	border-radius: 2px;
+	background: currentColor;
+	opacity: .9;
 }
-.status-bar--light { color: var(--c-white); }
-.status-bar--dark  { color: var(--c-ink-strong); }
+
+.status-bar--light {
+	color: var(--c-white);
+}
+
+.status-bar--dark {
+	color: var(--c-ink-strong);
+}
 
 /* ---------- 홈 인디케이터 ---------- */
 .home-indicator {
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 34px;
-  padding-bottom: 8px;
+	flex: none;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 34px;
+	padding-bottom: 8px;
 }
+
 .home-indicator::after {
-  content: "";
-  width: 134px;
-  height: 5px;
-  border-radius: var(--r-pill);
-  background: var(--c-ink-strong);
+	content: "";
+	width: 134px;
+	height: 5px;
+	border-radius: var(--r-pill);
+	background: var(--c-ink-strong);
 }
-.home-indicator--light::after { background: var(--c-white); }
+
+.home-indicator--light::after {
+	background: var(--c-white);
+}
 
 /* ---------- 유틸 ---------- */
-.u-center-text { text-align: center; }
-.u-pre { white-space: pre-line; }
-.u-grow { flex: 1 1 auto; }
-.u-mt-auto { margin-top: auto; }
+.u-center-text {
+	text-align: center;
+}
+
+.u-pre {
+	white-space: pre-line;
+}
+
+.u-grow {
+	flex: 1 1 auto;
+}
+
+.u-mt-auto {
+	margin-top: auto;
+}
+
+.u-flex-col-32 {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}

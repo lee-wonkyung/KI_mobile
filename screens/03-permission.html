@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>연금 MBTI TEST · 카메라 권한</title>
-  <link rel="stylesheet" href="../css/tokens.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/components.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>연금 MBTI TEST · 안내</title>
+	<link rel="stylesheet" href="../css/tokens.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/components.css">
 </head>
+
 <body>
-  <main class="app-screen">
-    <header class="app-header">
-      <button class="app-header__btn" aria-label="뒤로">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z"/></svg>
-      </button>
-      <span class="app-header__spacer"></span>
-    </header>
+	<main class="app-screen">
+		<header class="app-header">
+			<button class="app-header__btn" aria-label="뒤로">
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+					<path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z" />
+				</svg>
+			</button>
+			<span class="app-header__spacer"></span>
+		</header>
 
-    <div class="screen-body">
-      <div class="content">
-        <div class="title-block">
-          <div class="icon-box">☝️</div>
-          <h1 class="title-lg u-pre">고개를 좌우로 움직여
-테스트에 참여할 수 있어요</h1>
-          <p class="subtitle u-pre">움직임을 인식해
-자동으로 선택이 완료돼요</p>
-        </div>
-        <div style="position:relative; width:100%; margin-top:40px; display:flex; align-items:center; justify-content:center;">
-          <div style="position:absolute; left:50%; top:0; bottom:0; border-left:1px dashed var(--c-dash);"></div>
-          <img src="../assets/img/face-guide.png" alt="" style="width:200px; opacity:.95;">
-        </div>
-      </div>
-    </div>
+		<div class="screen-body">
+			<div class="content" style="gap:0;">
+				<div class="title-block">
+					<div class="icon-box">☝️</div>
+					<h1 class="title-lg u-pre">고개를 좌우로 움직여
+						테스트에 참여할 수 있어요</h1>
+					<p class="subtitle u-pre">움직임을 인식해
+						자동으로 선택이 완료돼요</p>
+				</div>
 
-    <!-- 하단 시트 : 카메라 권한 -->
-    <div class="sheet-dimm"></div>
-    <section class="bottom-sheet">
-      <div class="bottom-sheet__handle"></div>
-      <h2 class="bottom-sheet__title">카메라 권한 허용</h2>
+				<!-- O/X 안내 일러스트 (figma 자산) -->
+				<div>
+					<img src="../assets/img/face-guide.png" alt="고개를 좌우로 움직이는 안내">
+				</div>
+			</div>
+		</div>
 
-      <div class="permission-item">
-        <span class="permission-item__icon">📷</span>
-        <div>
-          <p class="permission-item__title">카메라 권한을 허용해 주세요</p>
-          <p class="permission-item__desc">AR 테스트를 위해 필요해요</p>
-        </div>
-      </div>
-      <div class="permission-item">
-        <span class="permission-item__icon">✅</span>
-        <div>
-          <p class="permission-item__title">촬영되거나, 녹화되지 않아요</p>
-          <p class="permission-item__desc">안심하세요</p>
-        </div>
-      </div>
+		<div class="btn-area">
+			<p class="btn-area__hint">고개를 좌우로 움직여 선택해요</p>
+			<button class="btn btn--primary-alt btn--block" id="startBtn">좋아요, 시작!</button>
+		</div>
 
-      <button class="btn btn--primary btn--block" style="margin-top:8px;">확인</button>
-    </section>
-  </main>
+		<!-- 하단 시트 : 카메라 권한 -->
+		<div class="sheet-dimm is-open" id="sheetDimm"></div>
+		<section class="bottom-sheet is-open" id="permissionSheet">
+			<div class="bottom-sheet__handle"></div>
+			<h2 class="bottom-sheet__title">카메라 권한 허용</h2>
+
+			<div class="permission-item">
+				<span class="permission-item__icon">📷</span>
+				<div>
+					<p class="permission-item__title">카메라 권한을 허용해 주세요</p>
+					<p class="permission-item__desc">AR 테스트를 위해 필요해요</p>
+				</div>
+			</div>
+			<div class="permission-item">
+				<span class="permission-item__icon">✅</span>
+				<div>
+					<p class="permission-item__title">촬영되거나, 녹화되지 않아요</p>
+					<p class="permission-item__desc">안심하세요</p>
+				</div>
+			</div>
+
+			<button class="btn btn--primary btn--block" id="confirmBtn">확인</button>
+		</section>
+	</main>
+
+
 </body>
+
 </html>

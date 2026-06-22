@@ -1,73 +1,179 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>한국투자증권 · 연금 MBTI TEST — 화면 목록</title>
-  <link rel="stylesheet" href="css/tokens.css">
-  <style>
-    body{margin:0;font-family:var(--font-sans);background:#eef1f5;color:var(--c-ink);}
-    .wrap{max-width:1200px;margin:0 auto;padding:40px 20px 80px;}
-    header.page-head{margin-bottom:32px;}
-    .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--c-primary);margin:0 0 8px;}
-    h1{font-size:28px;font-weight:800;margin:0 0 8px;}
-    .lede{font-size:15px;color:var(--c-gray);margin:0;max-width:60ch;line-height:1.5;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin-top:32px;}
-    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;color:inherit;transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column;}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.12);}
-    .thumb{position:relative;height:300px;background:#f4f6f9;overflow:hidden;border-bottom:1px solid #eef1f5;}
-    .thumb iframe{position:absolute;top:0;left:50%;width:390px;height:844px;border:0;transform:translateX(-50%) scale(.5);transform-origin:top center;pointer-events:none;}
-    .meta{padding:14px 16px;display:flex;align-items:baseline;gap:10px;}
-    .num{font-size:12px;font-weight:800;color:var(--c-primary);background:var(--c-bg-blue);border-radius:6px;padding:3px 7px;}
-    .name{font-size:14px;font-weight:600;}
-    .note{margin-top:40px;padding:20px 24px;background:#fff;border-radius:14px;font-size:13px;color:var(--c-gray);line-height:1.6;box-shadow:0 2px 10px rgba(0,0,0,.06);}
-    .note b{color:var(--c-ink);}
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>한국투자증권 · 연금 MBTI TEST — 화면 목록</title>
+	<link rel="stylesheet" href="css/tokens.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: var(--font-sans);
+			background: #eef1f5;
+			color: var(--c-ink);
+		}
+
+		.index-wrap {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 40px 20px 80px;
+		}
+
+		header.index-head {
+			margin-bottom: 32px;
+		}
+
+		.index-eyebrow {
+			font-size: 13px;
+			font-weight: 700;
+			letter-spacing: .08em;
+			color: var(--c-primary);
+			margin: 0 0 8px;
+		}
+
+		h1 {
+			font-size: 28px;
+			font-weight: 800;
+			margin: 0 0 8px;
+		}
+
+		.index-lede {
+			font-size: 15px;
+			color: var(--c-gray);
+			margin: 0;
+			max-width: 60ch;
+			line-height: 1.5;
+		}
+
+		.index-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+			gap: 24px;
+			margin-top: 32px;
+		}
+
+		.index-card {
+			background: #fff;
+			border-radius: 14px;
+			overflow: hidden;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+			text-decoration: none;
+			color: inherit;
+			transition: transform .15s ease, box-shadow .15s ease;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.index-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 28px rgba(0, 0, 0, .12);
+		}
+
+		.index-thumb {
+			position: relative;
+			height: 300px;
+			background: #f4f6f9;
+			overflow: hidden;
+			border-bottom: 1px solid #eef1f5;
+		}
+
+		.index-thumb iframe {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 390px;
+			height: 844px;
+			border: 0;
+			transform: translateX(-50%) scale(.5);
+			transform-origin: top center;
+			pointer-events: none;
+		}
+
+		.index-meta {
+			padding: 14px 16px;
+			display: flex;
+			align-items: baseline;
+			gap: 10px;
+		}
+
+		.index-num {
+			font-size: 12px;
+			font-weight: 800;
+			color: var(--c-primary);
+			background: var(--c-bg-blue);
+			border-radius: 6px;
+			padding: 3px 7px;
+		}
+
+		.index-name {
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		.index-note {
+			margin-top: 40px;
+			padding: 20px 24px;
+			background: #fff;
+			border-radius: 14px;
+			font-size: 13px;
+			color: var(--c-gray);
+			line-height: 1.6;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+		}
+
+		.index-note b {
+			color: var(--c-ink);
+		}
+	</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header class="page-head">
-      <p class="eyebrow">한국투자증권 · MOBILE</p>
-      <h1>연금 MBTI TEST — 화면 목록</h1>
-      <p class="lede">Figma 디자인을 HTML + CSS(모바일 우선)로 변환한 결과입니다. 색상·여백·폰트 크기는 디자인 수치를 반영했고, 반복 요소(버튼·입력폼·카드)는 <code>css/components.css</code>에 재사용 컴포넌트로 분리했습니다. 이미지·장식 아이콘은 자리표시 박스로 처리했습니다.</p>
-    </header>
+	<div class="index-wrap">
+		<header class="index-head">
+			<p class="index-eyebrow">한국투자증권 · MOBILE</p>
+			<h1>연금 MBTI TEST — 화면 목록</h1>
+			<p class="index-lede">Figma 디자인을 HTML + CSS(모바일 우선)로 변환한 결과입니다. 색상·여백·폰트 크기는 디자인 수치를 반영했고, 반복 요소(버튼·입력폼·카드)는 <code>css/components.css</code>에 재사용 컴포넌트로 분리했습니다. 이미지·장식 아이콘은 자리표시 박스로 처리했습니다.</p>
+		</header>
 
-    <div class="grid" id="grid"></div>
+		<div class="index-grid" id="grid"></div>
 
-    <div class="note">
-      <b>파일 구조</b><br>
-      · <b>css/tokens.css</b> — 색상·여백·반경·타이포 토큰(커스텀 프로퍼티)<br>
-      · <b>css/base.css</b> — 리셋·모바일 셸·상태바·홈 인디케이터<br>
-      · <b>css/components.css</b> — 버튼·입력폼·카드·헤더·칩·자리표시 박스 등 재사용 컴포넌트(케밥케이스)<br>
-      · <b>screens/01–15.html</b> — 각 화면<br><br>
-      <b>반응형</b> — 모바일 우선. 데스크탑(≥600px)에서는 390×844 디바이스 프레임으로 중앙 정렬됩니다.
-    </div>
-  </div>
+		<div class="index-note">
+			<b>파일 구조</b><br>
+			· <b>css/tokens.css</b> — 색상·여백·반경·타이포 토큰(커스텀 프로퍼티)<br>
+			· <b>css/base.css</b> — 리셋·모바일 셸·상태바·홈 인디케이터·유틸리티(<code>u-</code>)<br>
+			· <b>css/components.css</b> — 버튼·입력폼·카드·헤더·칩·자리표시 박스 등 재사용 컴포넌트<br>
+			· <b>screens/01–15.html</b> — 각 화면<br><br>
+			<b>네이밍 규칙</b> — 케밥케이스 + BEM(<code>block__element--modifier</code>). 동적 상태는 <code>is-</code> 접두사(<code>is-open</code>·<code>is-filled</code>·<code>is-ready</code>), 유틸리티는 <code>u-</code> 접두사, 이 목록 화면 전용 클래스는 <code>index-</code> 접두사로 네임스페이스합니다.<br><br>
+			<b>반응형</b> — 모바일 우선. 데스크탑(≥600px)에서는 390×844 디바이스 프레임으로 중앙 정렬됩니다.
+		</div>
+	</div>
 
-  <script>
-    const screens = [
-      ["01","인트로","01-intro"],
-      ["02","테스트 안내","02-guide"],
-      ["03","카메라 권한","03-permission"],
-      ["04","문항(O/X)","04-test"],
-      ["05","분석 중","05-loading"],
-      ["06","결과(INFJ)","06-result"],
-      ["07","이름 입력","07-name"],
-      ["08","휴대폰번호","08-phone"],
-      ["09","해석 준비 완료","09-ready"],
-      ["10","카카오 채널","10-kakao"],
-      ["11","친구 추가 완료","11-kakao-done"],
-      ["12","가챠","12-gacha"],
-      ["13","당첨","13-prize"],
-      ["14","연락 정보","14-contact"],
-      ["15","수령 완료","15-finish"],
-    ];
-    const grid = document.getElementById("grid");
-    grid.innerHTML = screens.map(([n,label,file]) => `
-      <a class="card" href="screens/${file}.html">
-        <div class="thumb"><iframe src="screens/${file}.html" scrolling="no" tabindex="-1"></iframe></div>
-        <div class="meta"><span class="num">${n}</span><span class="name">${label}</span></div>
+	<script>
+		const screens = [
+			["01", "인트로 - 디자인 교체", "01-intro"],
+			["02", "테스트 안내", "02-guide"],
+			["03", "카메라 권한", "03-permission"],
+			["04", "문항(O/X)", "04-test"],
+			["05", "분석 중", "05-loading"],
+			["06", "결과(INFJ)", "06-result"],
+			["07", "이름 입력", "07-name"],
+			["08", "휴대폰번호", "08-phone"],
+			["09", "해석 준비 완료", "09-ready"],
+			["10", "카카오 채널", "10-kakao"],
+			["11", "친구 추가 완료", "11-kakao-done"],
+			["12", "가챠", "12-gacha"],
+			["13", "당첨", "13-prize"],
+			["14", "연락 정보", "14-contact"],
+			["15", "수령 완료", "15-finish"],
+		];
+		const grid = document.getElementById("grid");
+		grid.innerHTML = screens.map(([n, label, file]) => `
+      <a class="index-card" href="screens/${file}.html" target="_blank">
+        <div class="index-thumb"><iframe src="screens/${file}.html" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="index-meta"><span class="index-num">${n}</span><span class="index-name">${label}</span></div>
       </a>`).join("");
-  </script>
+	</script>
 </body>
+
 </html>

@@ -1,55 +1,95 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>연금 MBTI TEST · 안내</title>
-  <link rel="stylesheet" href="../css/tokens.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/components.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>연금 MBTI TEST · 안내</title>
+	<link rel="stylesheet" href="../css/tokens.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/components.css">
 </head>
+
 <body>
-  <main class="app-screen">
-    <header class="app-header">
-      <button class="app-header__btn" aria-label="뒤로">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z"/></svg>
-      </button>
-      <span class="app-header__spacer"></span>
-    </header>
+	<main class="app-screen">
+		<header class="app-header">
+			<button class="app-header__btn" aria-label="뒤로">
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+					<path d="M16 7H3.83L9.42 1.41 8 0 0 8l8 8 1.41-1.41L3.83 9H16V7Z" />
+				</svg>
+			</button>
+			<span class="app-header__spacer"></span>
+		</header>
 
-    <div class="screen-body">
-      <div class="content" style="gap:0;">
-        <div class="title-block">
-          <div class="icon-box">☝️</div>
-          <h1 class="title-lg u-pre">고개를 좌우로 움직여
-테스트에 참여할 수 있어요</h1>
-          <p class="subtitle u-pre">움직임을 인식해
-자동으로 선택이 완료돼요</p>
-        </div>
+		<div class="screen-body">
+			<div class="content" style="gap:0;">
+				<div class="title-block">
+					<div class="icon-box">☝️</div>
+					<h1 class="title-lg u-pre">고개를 좌우로 움직여
+						테스트에 참여할 수 있어요</h1>
+					<p class="subtitle u-pre">움직임을 인식해
+						자동으로 선택이 완료돼요</p>
+				</div>
 
-        <!-- O/X 안내 일러스트 (figma 자산) -->
-        <div style="position:relative; width:100%; margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:24px;">
-          <div style="position:relative; width:100%; display:flex; align-items:center; justify-content:center; padding:24px 0;">
-            <div style="position:absolute; left:50%; top:0; bottom:0; border-left:1px dashed var(--c-dash);"></div>
-            <span style="position:absolute; left:18px; top:38%; font-family:Georgia,'Times New Roman',serif; font-size:72px; font-weight:700; color:var(--c-accent); line-height:1;">O</span>
-            <span style="position:absolute; left:30px; bottom:18px; font-size:var(--t-16); font-weight:700; color:var(--c-accent);">맞다</span>
-            <img src="../assets/img/face-guide.png" alt="고개를 좌우로 움직이는 안내" style="width:230px;">
-            <span style="position:absolute; right:18px; top:38%; font-family:Georgia,'Times New Roman',serif; font-size:72px; font-weight:700; color:var(--c-accent); opacity:.4; line-height:1;">X</span>
-            <span style="position:absolute; right:22px; bottom:18px; font-size:var(--t-16); font-weight:700; color:var(--c-accent); opacity:.4;">아니다</span>
-          </div>
-          <div class="q-badge">
-            <span class="q-badge__no">Q1.</span>
-            <span class="q-badge__text">나는 수익률보다 안정성이 더 중요하다</span>
-          </div>
-        </div>
-      </div>
-    </div>
+				<!-- O/X 안내 일러스트 (figma 자산) -->
+				<div>
+					<img src="../assets/img/face-guide.png" alt="고개를 좌우로 움직이는 안내">
+				</div>
+			</div>
+		</div>
 
-    <div class="btn-area">
-      <p class="btn-area__hint">고개를 좌우로 움직여 선택해요</p>
-      <button class="btn btn--primary-alt btn--block">좋아요, 시작!</button>
-    </div>
-    <div class="home-indicator"></div>
-  </main>
+		<div class="btn-area">
+			<p class="btn-area__hint">고개를 좌우로 움직여 선택해요</p>
+			<button class="btn btn--primary-alt btn--block" id="startBtn">좋아요, 시작!</button>
+		</div>
+
+		<!-- 하단 시트 : 카메라 권한 -->
+		<div class="sheet-dimm" id="sheetDimm"></div>
+		<section class="bottom-sheet" id="permissionSheet">
+			<div class="bottom-sheet__handle"></div>
+			<h2 class="bottom-sheet__title">카메라 권한 허용</h2>
+
+			<div class="permission-item">
+				<span class="permission-item__icon">📷</span>
+				<div>
+					<p class="permission-item__title">카메라 권한을 허용해 주세요</p>
+					<p class="permission-item__desc">AR 테스트를 위해 필요해요</p>
+				</div>
+			</div>
+			<div class="permission-item">
+				<span class="permission-item__icon">✅</span>
+				<div>
+					<p class="permission-item__title">촬영되거나, 녹화되지 않아요</p>
+					<p class="permission-item__desc">안심하세요</p>
+				</div>
+			</div>
+
+			<button class="btn btn--primary btn--block" id="confirmBtn">확인</button>
+		</section>
+	</main>
+
+	<script>
+		(function () {
+			var startBtn = document.getElementById('startBtn');
+			var confirmBtn = document.getElementById('confirmBtn');
+			var dimm = document.getElementById('sheetDimm');
+			var sheet = document.getElementById('permissionSheet');
+
+			function openSheet() {
+				dimm.classList.add('is-open');
+				sheet.classList.add('is-open');
+			}
+
+			function closeSheet() {
+				dimm.classList.remove('is-open');
+				sheet.classList.remove('is-open');
+			}
+
+			startBtn.addEventListener('click', openSheet);
+			dimm.addEventListener('click', closeSheet);
+			confirmBtn.addEventListener('click', closeSheet);
+		})();
+	</script>
 </body>
+
 </html>
