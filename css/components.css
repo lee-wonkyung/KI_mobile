@@ -653,11 +653,11 @@
 	flex: 1 1 0;
 	height: 100%;
 	border-radius: var(--r-pill);
-	background: rgba(255, 255, 255, .35);
+	background: #DEE0F3;
 }
 
 .progress-bar__seg--on {
-	background: var(--c-white);
+	background: var(--c-primary-alt);
 }
 
 .app-screen--result .content {
