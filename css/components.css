@@ -29,7 +29,6 @@
 
 .app-header__btn svg {
 	display: block;
-	color: var(--c-ink-strong);
 }
 
 .app-header__btn--save {
