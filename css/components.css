@@ -808,7 +808,7 @@
 }
 
 .app-screen--gacha {
-	background: url(/assets/img/img_gacha.png) no-repeat center;
+	background: url(/assets/img/img_gacha.png) no-repeat center / cover;
 }
 
 .flex-box {
@@ -940,4 +940,12 @@
 	padding: 11px 30px;
 	border-radius: 30px;
 	margin: 0;
+}
+
+.content:has(.present) {
+	gap: 61px;
+}
+
+.content .present {
+	border: 1px solid #ececec;
 }
