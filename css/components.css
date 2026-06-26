@@ -29,6 +29,7 @@
 
 .app-header__btn svg {
 	display: block;
+	color: var(--c-ink-strong);
 }
 
 .app-header__btn--save {
@@ -429,7 +430,11 @@
 	display: flex;
 	align-items: center;
 	gap: var(--s-12);
-	padding: 16px 0;
+}
+
+.list-row .list-icon {
+	width: 48px;
+	height: 45px;
 }
 
 .list-row+.list-row {
@@ -448,8 +453,8 @@
 
 .list-row__text {
 	font-size: var(--t-16);
-	font-weight: 500;
-	color: var(--c-ink);
+	font-weight: 400;
+	color: #333;
 }
 
 .list-row__text b {
@@ -672,7 +677,6 @@
 	position: relative;
 	width: 265px;
 	border-radius: var(--r-lg);
-	box-shadow: 0 4px 51px rgba(0, 0, 0, .13);
 	text-align: center;
 }
 
@@ -728,29 +732,42 @@
 
 .result-stack__ghost {
 	position: absolute;
-	top: 8px;
 	width: 265px;
 	height: 417px;
 	border-radius: var(--r-lg);
 	background: #d9e6f6;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, .08);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .result-stack__ghost--l {
-	transform: rotate(-8deg);
-	top: 2px;
-	left: 3px;
+	width: 270.014px;
+	height: 402.35px;
+	transform: rotate(-9.792deg);
+	padding: 149px 24.014px 40.354px 24px;
 	background-color: #3191FF;
 	z-index: 2;
 }
 
 .result-stack__ghost--r {
-	height: 394px;
-	transform: rotate(8deg);
+	width: 263.983px;
+	height: 394.16px;
+	transform: rotate(6.053deg);
+	padding: 149px 23.983px 32.157px 24px;
 	background-color: #F774C4;
-	top: 27px;
-	left: 4px;
 	z-index: 1;
+	left: 7px;
+}
+
+.result-stack__ghost--b {
+	width: 263.983px;
+	height: 394.16px;
+	transform: rotate(-3.618deg);
+	padding: 149px 23.983px 32.157px 24px;
+	background-color: #74F790;
+	z-index: 0;
 }
 
 /* screen-body 정렬/레이어 모디파이어 (인라인 스타일 대체) */
@@ -769,6 +786,10 @@
 	flex-direction: column;
 	gap: 24px;
 	padding: 32px;
+}
+
+.screen-body .content:has(.result-card) {
+	padding: 32px 24px;
 }
 
 .screen-body.is-ready {
@@ -854,14 +875,18 @@
 .test-question .pill {
 	text-align: center;
 	min-width: 0;
+	padding: 12px 32px;
+	border-radius: 32px;
+	background-color: var(--c-bg-blue);
 }
 
 /* O / X 선택지 영역 */
 .test-choices {
 	width: 100%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
+	gap: var(--s-32);
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -872,6 +897,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
+	width: 140px;
 }
 
 .test-choice__mark {
