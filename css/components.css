@@ -38,6 +38,10 @@
 	color: var(--c-gray-2);
 }
 
+.app-header__btn--save svg {
+	color: #000;
+}
+
 .app-header__title {
 	font-size: var(--t-16);
 	font-weight: 500;
