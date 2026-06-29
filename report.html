@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Claude Design 퍼블리싱 작업 노트</title>
+	<style>
+		:root {
+			--bg: #f5f5f4;
+			--card-bg: #ffffff;
+			--text: #1c1c1c;
+			--text-muted: #6b6b6b;
+			--accent: #c96442;
+			/* Claude 톤 */
+			--accent-soft: #f3e6e0;
+			--border: #e5e3e0;
+			--radius: 14px;
+			--shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.04);
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Pretendard", -apple-system, BlinkMacSystemFont,
+				"Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+			background: var(--bg);
+			color: var(--text);
+			line-height: 1.7;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.wrap {
+			max-width: 880px;
+			margin: 0 auto;
+			padding: 48px 24px 96px;
+		}
+
+		/* ===== 헤더 ===== */
+		header.page-head {
+			margin-bottom: 48px;
+		}
+
+		header.page-head .eyebrow {
+			display: inline-block;
+			font-size: 13px;
+			font-weight: 600;
+			letter-spacing: 0.04em;
+			color: var(--accent);
+			background: var(--accent-soft);
+			padding: 4px 12px;
+			border-radius: 999px;
+			margin-bottom: 16px;
+		}
+
+		header.page-head h1 {
+			font-size: 32px;
+			line-height: 1.3;
+			margin: 0 0 12px;
+			font-weight: 700;
+		}
+
+		header.page-head p.lead {
+			font-size: 16px;
+			color: var(--text-muted);
+			margin: 0;
+			max-width: 60ch;
+		}
+
+		header.page-head .meta {
+			margin-top: 20px;
+			font-size: 13px;
+			color: var(--text-muted);
+			display: flex;
+			gap: 16px;
+			flex-wrap: wrap;
+		}
+
+		/* ===== 목록 항목 (카드) ===== */
+		.item {
+			background: var(--card-bg);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+			padding: 28px 28px 24px;
+			margin-bottom: 24px;
+			scroll-margin-top: 24px;
+		}
+
+		.item-head {
+			display: flex;
+			align-items: baseline;
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+
+		.item-num {
+			flex-shrink: 0;
+			width: 30px;
+			height: 30px;
+			border-radius: 8px;
+			background: var(--accent);
+			color: #fff;
+			font-size: 14px;
+			font-weight: 700;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.item-head h2 {
+			font-size: 20px;
+			margin: 0;
+			font-weight: 700;
+		}
+
+		/* 상태 라벨 (선택) */
+		.tag {
+			display: inline-block;
+			font-size: 12px;
+			font-weight: 600;
+			padding: 3px 10px;
+			border-radius: 6px;
+			margin-left: auto;
+			align-self: center;
+		}
+
+		.tag.problem {
+			background: #fdecea;
+			color: #c0392b;
+		}
+
+		.tag.solved {
+			background: #e6f4ea;
+			color: #1e7e44;
+		}
+
+		.tag.tip {
+			background: #eef2fb;
+			color: #2f5fc4;
+		}
+
+		.item-body p {
+			margin: 0 0 14px;
+		}
+
+		.item-body p:last-child {
+			margin-bottom: 0;
+		}
+
+		/* 본문 안의 작은 라벨 */
+		.label {
+			display: block;
+			font-size: 13px;
+			font-weight: 700;
+			color: var(--accent);
+			margin: 18px 0 6px;
+		}
+
+		/* 코드 / 인용 */
+		code {
+			background: #f0eeec;
+			padding: 2px 6px;
+			border-radius: 5px;
+			font-size: 0.9em;
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+		}
+
+		blockquote {
+			margin: 14px 0;
+			padding: 12px 16px;
+			border-left: 3px solid var(--accent);
+			background: var(--accent-soft);
+			border-radius: 0 8px 8px 0;
+			color: #5a4038;
+		}
+
+		/* ===== 이미지 ===== */
+		figure {
+			margin: 18px 0 0;
+		}
+
+		figure img {
+			width: 100%;
+			height: auto;
+			border-radius: 10px;
+			border: 1px solid var(--border);
+			display: block;
+		}
+
+		/* 이미지 자리표시자 (이미지 넣기 전까지 사용) */
+		.img-placeholder {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			border: 1px dashed var(--border);
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--text-muted);
+			font-size: 14px;
+			background:
+				repeating-linear-gradient(45deg, #fafafa, #fafafa 12px, #f3f3f3 12px, #f3f3f3 24px);
+		}
+
+		figcaption {
+			margin-top: 8px;
+			font-size: 13px;
+			color: var(--text-muted);
+			text-align: center;
+		}
+
+		/* ===== 푸터 ===== */
+		footer.page-foot {
+			margin-top: 56px;
+			padding-top: 24px;
+			border-top: 1px solid var(--border);
+			font-size: 13px;
+			color: var(--text-muted);
+			text-align: center;
+		}
+
+		@media (max-width: 560px) {
+			.wrap {
+				padding: 32px 16px 64px;
+			}
+
+			header.page-head h1 {
+				font-size: 26px;
+			}
+
+			.item {
+				padding: 22px 18px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+
+		<!-- ===== 페이지 헤더 ===== -->
+		<header class="page-head">
+			<span class="eyebrow">Publishing Retrospective</span>
+			<h1>Claude Design 퍼블리싱 작업 노트</h1>
+			<p class="lead">
+				Claude design을 활용해 화면을 퍼블리싱하는 과정에서 마주친 문제와
+				해결 방법,<br /> 그리고 다음에 적용할 팁을 정리합니다.
+			</p>
+			<div class="meta">
+				<span>작성일: 2026-06-29</span>
+				<span>작성자: 이원경</span>
+			</div>
+		</header>
+
+		<!-- ===== 항목 1 ===== -->
+		<section class="item" id="item-1">
+			<div class="item-head">
+				<span class="item-num">1</span>
+				<h2>모바일 키보드 영역은 퍼블리싱 전에 제거해야 한다</h2>
+				<span class="tag problem">문제</span>
+			</div>
+			<div class="item-body">
+				<p>
+					Claude Design은 전달받은 피그마 화면을 그대로 마크업하기 때문에,
+					디자인에 포함된 <strong>모바일 키보드 영역까지 실제 화면 요소로 생성</strong>한다.
+				</p>
+
+				<span class="label">정리 포인트</span>
+				<p>
+					피그마 디자인을 퍼블리싱용으로 전달할 때는 키보드 영역을 미리 제거하거나,
+					키보드가 화면의 실제 구성 요소가 아님을 명확히 구분해 전달해야 한다.
+					그렇지 않으면 불필요한 영역이 마크업에 포함된다.
+				</p>
+
+				<figure>
+					<img src="screenshots/01-keyboard.png" alt="키보드 영역이 그대로 마크업된 예시" />
+					<figcaption>키보드 영역이 그대로 마크업되는 디자인</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- ===== 항목 2 ===== -->
+		<section class="item" id="item-2">
+			<div class="item-head">
+				<span class="item-num">2</span>
+				<h2>같은 컴포넌트라도 페이지마다 사이즈가 달라 영역 값이 부정확할 수 있다</h2>
+				<span class="tag problem">문제</span>
+			</div>
+			<div class="item-body">
+				<p>
+					실제 피그마 작업물에서는 <strong>같은 컴포넌트 이름을 가지고 있어도
+						페이지마다 사이즈가 다른 경우</strong>가 있다.
+				</p>
+
+				<span class="label">정리 포인트</span>
+				<p>
+					이 때문에 컴포넌트 기준으로 추출한 영역(크기·간격) 값이
+					페이지마다 정확하지 않을 수 있으므로, 동일 컴포넌트의 사이즈를 통일하거나
+					페이지별 차이를 인지하고 검수해야 한다.
+				</p>
+
+				<figure>
+					<img src="screenshots/02-component-size.png" alt="동일 컴포넌트의 페이지별 사이즈 차이" />
+					<figcaption>동일 컴포넌트의 페이지별 사이즈 차이</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- ===== 항목 3 ===== -->
+		<section class="item" id="item-3">
+			<div class="item-head">
+				<span class="item-num">3</span>
+				<h2>프로그래스바 등 스크립트 요소는 영역을 분리해 전달해야 한다</h2>
+				<span class="tag problem">문제</span>
+			</div>
+			<div class="item-body">
+				<p>
+					프로그래스바처럼 <strong>스크립트로 동작해야 하는 요소</strong>가 들어가는 경우,
+					퍼블리싱이 가능하도록 요소가 분리되어 전달되어야 한다.
+				</p>
+
+				<span class="label">정리 포인트</span>
+				<p>
+					전달된 피그마에서는 퍼센트 숫자와 프로그래스바 영역이 하나의 전체 이미지로 묶여 있어,
+					실제로도 <strong>이미지로 추출되어 작업</strong>되었다.
+					동적으로 제어해야 하는 요소는 이미지가 아닌 개별 요소로 분리해야 스크립트 적용이 가능하다.
+				</p>
+
+				<figure>
+					<img src="screenshots/03-progressbar.png" alt="이미지로 묶여 추출된 프로그래스바 영역" />
+					<figcaption>이미지로 묶여 추출된 프로그래스바 영역</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- ===== 항목 4 ===== -->
+		<section class="item" id="item-4">
+			<div class="item-head">
+				<span class="item-num">4</span>
+				<h2>체크박스는 활성화·비활성화 디자인을 모두 전달해야 한다</h2>
+				<span class="tag problem">문제</span>
+			</div>
+			<div class="item-body">
+				<p>
+					전달된 피그마 디자인에서는 체크박스가
+					<strong>활성화 상태인지 비활성화 상태인지 구분이 모호</strong>했다.
+				</p>
+
+				<span class="label">정리 포인트</span>
+				<p>
+					체크박스처럼 상태가 나뉘는 요소는 활성화/비활성화 디자인을 모두 전달해야
+					각 상태를 정확히 마크업할 수 있다. 한쪽 상태만 전달되면 나머지 상태를 추정해야 한다.
+				</p>
+
+				<figure>
+					<img src="screenshots/04-checkbox.png" alt="체크박스 활성화 / 비활성화 상태 비교" />
+					<figcaption>체크박스 활성화 / 비활성화 상태 비교</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- 항목을 추가하려면 위 <section class="item"> 블록을 복사하세요 -->
+
+		<footer class="page-foot">
+			Claude Design Publishing Retrospective · KI_mobile
+		</footer>
+
+	</div>
+</body>
+
+</html>
